@@ -41,7 +41,7 @@ def getResult2(numbers): #без сортировки
     return result   
 
 def function():
-    numbers = [random.randint(1, 10) for _ in range (11)]
+    numbers = [random.randint(1, 10) for _ in range (15)]
     print(str(numbers) + ' => ' + str(getResult(numbers)))
     print(str(numbers) + ' => ' + str(getResult2(numbers)))
 
