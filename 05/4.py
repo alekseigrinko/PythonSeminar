@@ -8,6 +8,7 @@ def head():
 def check(line1, line2, line3):
     options = ['x', 'o']
     key = True
+    count = 0
     for i in options:
         if (i in line1[0] and i in line1[1] and i in line1[2]) or\
         (i in line2[0] and i in line2[1] and i in line2[2]) or\
@@ -20,6 +21,17 @@ def check(line1, line2, line3):
             print(f'{i} - победили!')
             playing_field(line1, line2, line3)
             key = False
+        for x in range(3):
+            if i in line1[x]:
+                count += 1
+            if i in line2[x]:
+                count += 1
+            if i in line3[x]:
+                count += 1
+    if (count == 9):
+        print('Ничья!')
+        playing_field(line1, line2, line3)
+        key = False
     return key
 
 def check_field(line1, line2, line3, n: int, player):
@@ -115,15 +127,17 @@ def menu(line1, line2, line3):
         while key:
             line1, line2, line3 = playing_player(line1, line2, line3, player)
             key = check(line1, line2, line3)
-            line1, line2, line3 = playing_bot(line1, line2, line3, bot)
-            key = check(line1, line2, line3)
+            if key:
+                line1, line2, line3 = playing_bot(line1, line2, line3, bot)
+                key = check(line1, line2, line3)
     else:
         print('Игрок ходит вторым!')
         while key:
             line1, line2, line3 = playing_bot(line1, line2, line3, bot)
             key = check(line1, line2, line3)
-            line1, line2, line3 = playing_player(line1, line2, line3, player) 
-            key = check(line1, line2, line3)
+            if key:
+                line1, line2, line3 = playing_player(line1, line2, line3, player) 
+                key = check(line1, line2, line3)
 
 def playing_player(line1, line2, line3, player):
     key = True
