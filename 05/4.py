@@ -94,6 +94,46 @@ def check_field(line1, line2, line3, n: int, player):
             print('По указанному полю был уже ход игрока!')
     return line1, line2, line3, key
 
+def check_field_bot(line1, line2, line3, n: int, player):
+    key = True
+    if n == 1:
+        if '1' in line1[0]:
+            line1[0] = player
+            key = False
+    elif n == 2:
+        if '2' in line1[1]:
+            line1[1] = player
+            key = False
+    elif n == 3:
+        if '3' in line1[2]:
+            line1[2] = player
+            key = False
+    elif n == 4:
+        if '4' in line2[0]:
+            line2[0] = player
+            key = False
+    elif n == 5:
+        if '5' in line2[1]:
+            line2[1] = player
+            key = False
+    elif n == 6:
+        if '6' in line2[2]:
+            line2[2] = player
+            key = False
+    elif n == 7:
+        if '7' in line3[0]:
+            line3[0] = player
+            key = False
+    elif n == 8:
+        if '8' in line3[1]:
+            line3[1] = player
+            key = False
+    elif n == 9:
+        if '9' in line3[2]:
+            line3[2] = player
+            key = False
+    return line1, line2, line3, key
+
 def print_line(line):
     print('|' + '|'.join(line) + '|')
 
@@ -108,7 +148,7 @@ def menu(line1, line2, line3):
     bot = ''
     key = True
     while key:
-        n = input('Введите 1 для игры X-ками \nВведите 2 для игры O-ками \n')
+        n = input('Введите 1 для игры X-ками \nВведите 2 для игры O-ками\n ----->  ')
         if int(n) == 1:
             player = 'x'
             bot = 'o'
@@ -150,7 +190,7 @@ def playing_bot(line1, line2, line3, bot):
     key = True
     while key:
         n = random.randint(1,9)
-        line1, line2, line3, key = check_field(line1, line2, line3, n, bot)
+        line1, line2, line3, key = check_field_bot(line1, line2, line3, n, bot)
     playing_field(line1, line2, line3)
     return line1, line2, line3
 
