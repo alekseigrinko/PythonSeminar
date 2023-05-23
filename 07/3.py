@@ -1,7 +1,7 @@
 import telebot
 import random
 
-bot = telebot.TeleBot("5773948058:AAHblLPKGr8LskMYaFCtz3NejjdKpICUHaY")
+bot = telebot.TeleBot("TOKEN")
 bot.set_my_commands([
     telebot.types.BotCommand("/start", "Запуск бота"),
     telebot.types.BotCommand("/play", "Начать игру"),
