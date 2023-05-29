@@ -8,5 +8,3 @@ if (np.array(numbers).__len__() < count):
     print('В массиве имеются одинаковые строки')
 else:
     print('В массиве нет одинаковых строк')
-
-#print(f'Представлен список элементов: \n {numbers} \n В нем {count} уникальных элементов: \n {uniq_elements}')
